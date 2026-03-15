@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+    name: ric-security-xapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ric-security-xapp
+  template:
+    metadata:
+      labels:
+        app: ric-security-xapp
+    spec:
+      containers:
+      - name: ric-security-xapp
+        image: ric-security-xapp:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
